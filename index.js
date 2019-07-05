@@ -9,7 +9,7 @@ const mongoose = require("mongoose")
 
 //cloud
 
-// mongoose.connect("mongodb+srv://Bob:bob123@cluster0-qdwaj.mongodb.net/postApp", {useNewUrlParser: true})
+mongoose.connect("mongodb+srv://Bob:bob123@cluster0-qdwaj.mongodb.net/postApp", {useNewUrlParser: true})
 
 // Automatically sets view engine and adds dot notation to app.render
 app.use(require('express-edge'));
