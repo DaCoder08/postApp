@@ -1,0 +1,47 @@
+@layout('template')
+
+@section('content')
+<br><br><br>
+<header>
+    <h3>{{ post.title }}</h3>
+    <h5>{{ post.body }}</h5>
+</header>
+<br><br>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Add Comment
+</button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add New Comment</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+        <form id="addcomment" method="POST" action="../../addComment/{{ userid }}/{{ post._id }}">
+                <div class="form-group1">
+                    <label>Comment</label>
+                    <input type="text" class="form-control" name="comment" placeholder="Enter Title">
+                </div><br>
+                <button class="btn btn-primary">
+                    Add Comment
+                </button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div><br><br><hr>
+@each(item in comments)
+<div>
+<h3>{{ item.comment }}</h3>
+<h5>By {{ item.user }}</h5>
+</div><hr>
+@endeach
+@endsection

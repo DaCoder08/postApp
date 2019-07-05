@@ -1,0 +1,16 @@
+@layout('template')
+
+
+@section('content')
+<br><br>
+<hr>
+@each(item in posts)
+<div>
+<h3>{{ item.title }}</h3>
+<h5>{{ item.body }}</h5>
+<p><u><a href="/post/{{ userid }}/{{ item.id }}">Show Comments</a></u></p>
+<hr class="footer-separate">
+<footer>By {{ item.user }}</footer>
+</div><hr>
+@endeach
+@endsection
